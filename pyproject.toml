@@ -1,0 +1,14 @@
+[project]
+name = "prefix-sum-array"
+version = "0.1.0"
+description = "Precomputes cumulative sums to answer fixed-range sum queries in constant time."
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
