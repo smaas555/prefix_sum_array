@@ -1,6 +1,6 @@
 [project]
 name = "prefix-sum-array"
-version = "0.1.0"
+version = "0.1.1"
 description = "Precomputes cumulative sums to answer fixed-range sum queries in constant time."
 requires-python = ">=3.10"
 dependencies = []
