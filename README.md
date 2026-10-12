@@ -20,3 +20,10 @@ Answering "sum of elements from i to j" repeatedly over the same array is wastef
 `range_sum(i, j)` follows Python slice semantics: `i` is inclusive, `j` is exclusive, negatives count from the end, and out-of-range indices clamp to the bounds rather than raising. An empty range (`i == j`) returns `0.0`. A range where the clamped start exceeds the clamped end also returns `0.0` rather than erroring. Non-integer indices (including `bool`) raise `TypeError` — clamping `1.5` to `1` would hide caller mistakes.
 
 Values are accumulated as Python floats, so integer inputs lose their `int` type in results. This keeps behaviour uniform across numeric inputs and avoids a parallel integer code path that would double the surface area for the same constant-time guarantee.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
